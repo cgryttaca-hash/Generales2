@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Seguimiento de Cotizaciones</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+MENU LATERAL
+============================ -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-chart-column"></i>
+
+        <div>
+
+            <h2>TÁCTICA</h2>
+
+            <span>Dashboard Comercial</span>
+
+        </div>
+
+    </div>
+
+    <ul>
+
+        <li class="active">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </li>
+
+        <li>
+            <i class="fa-solid fa-file-signature"></i>
+            Cotizaciones
+        </li>
+
+        <li>
+            <i class="fa-solid fa-users"></i>
+            Clientes
+        </li>
+
+        <li>
+            <i class="fa-solid fa-building"></i>
+            Empresas
+        </li>
+
+        <li>
+            <i class="fa-solid fa-calendar-days"></i>
+            Agenda
+        </li>
+
+        <li>
+            <i class="fa-solid fa-chart-pie"></i>
+            Reportes
+        </li>
+
+        <li>
+            <i class="fa-solid fa-gear"></i>
+            Configuración
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ===========================
+CONTENIDO
+============================ -->
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Dashboard de Seguimiento Comercial
+
+</h1>
+
+<p>
+
+Seguimiento de Cotizaciones • Datos de demostración
+
+</p>
+
+</div>
+
+<div class="perfil">
+
+<i class="fa-solid fa-user-tie"></i>
+
+Administrador
+
+</div>
+
+</header>
+
+<!-- ===========================
+RESUMEN
+============================ -->
+
+<section class="panel">
+
+<div class="panel-header">
+
+<h2>
+
+<i class="fa-solid fa-chart-line"></i>
+
+Resumen 
+
+</h2>
+
+<span>
+
+Actualizado: Julio 2026
+
+</span>
+
+</div>
+
+<!-- ===========================
+KPIs
+============================ -->
+
+<div class="cards">
+
+    <div class="card azul">
+
+        <i class="fa-solid fa-file-signature"></i>
+
+        <h3>Total Cotizaciones</h3>
+
+        <h1 id="kpiTotal">68</h1>
+
+        <small>Este mes</small>
+
+    </div>
+
+    <div class="card verde">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h3>Confirmadas</h3>
+
+        <h1 id="kpiConfirmadas">39</h1>
+
+        <small>57% del total</small>
+
+    </div>
+
+    <div class="card naranja">
+
+        <i class="fa-solid fa-clock"></i>
+
+        <h3>Pendientes</h3>
+
+        <h1 id="kpiPendientes">18</h1>
+
+        <small>En negociación</small>
+
+    </div>
+
+    <div class="card rojo">
+
+        <i class="fa-solid fa-circle-xmark"></i>
+
+        <h3>Canceladas</h3>
+
+        <h1 id="kpiCanceladas">11</h1>
+
+        <small>No concretadas</small>
+
+    </div>
+
+    <div class="card morado">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <h3>Cumplimiento</h3>
+
+        <h1 id="kpiCumplimiento">57%</h1>
+
+        <small>Meta Comercial</small>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+BARRA DE CUMPLIMIENTO
+============================ -->
+
+<div class="panel">
+
+    <div class="panel-header">
+
+        <h2>
+
+            <i class="fa-solid fa-bullseye"></i>
+
+            Cumplimiento Comercial
+
+        </h2>
+
+        <span id="porcentajeCumplimiento">
+
+            57%
+
+        </span>
+
+    </div>
+
+    <div class="barra">
+
+        <div class="barra-progreso" id="barraCumplimiento"></div>
+
+    </div>
+
+
+</div>
+
+<!-- ===========================
+BUSCADOR
+=========================== -->
+
+<div class="panel">
+
+    <div class="panel-header">
+
+        <h2>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Seguimiento de Cotizaciones
+        </h2>
+
+        <span id="contador">
+            68 registros
+        </span>
+
+    </div>
+
+    <div class="busqueda">
+
+        <div class="contenedorBusqueda">
+
+            <i class="fa-solid fa-search"></i>
+
+            <input
+                type="text"
+                id="buscar"
+                placeholder="Buscar por empresa, salón, ciudad o estado...">
+
+        </div>
+
+    </div>
+
+    <!-- ===========================
+    TABLA
+    =========================== -->
+
+    <div class="tabla-responsive">
+
+        <table id="tabla">
+
+<!-- ===========================
+TABLA DE COTIZACIONES
+=========================== -->
+
+<div class="tabla-responsive">
+
+<table id="tabla">
+
+<thead>
+
+<tr>
+
+<th>Fecha</th>
+
+<th>Empresa</th>
+
+<th>Salon asignado</th>
+
+<th>Ciudad</th>
+
+<th>Asistentes</th>
+
+<th>Valor</th>
+
+<th>Estado</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tbody">
+
+<tr>
+
+<td>03/07/2026</td>
+<td>Bancolombia</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>120</td>
+<td>$8.450.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+<tr>
+
+<td>04/07/2026</td>
+<td>Grupo Nutresa</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>90</td>
+<td>$6.800.000</td>
+<td><span class="estado pendiente">Pendiente</span></td>
+
+</tr>
+
+<tr>
+
+<td>05/07/2026</td>
+<td>Grupo SURA</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>180</td>
+<td>$15.600.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+<tr>
+
+<td>06/07/2026</td>
+<td>EPM</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>80</td>
+<td>$5.250.000</td>
+<td><span class="estado cancelada">Cancelada</span></td>
+
+</tr>
+
+<tr>
+
+<td>07/07/2026</td>
+<td>Cementos Argos</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>110</td>
+<td>$7.980.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+<tr>
+
+<td>08/08/2026</td>
+<td>ISA</td>
+<td>Tactica 34 </td>
+<td>Bogotá</td>
+<td>250</td>
+<td>$21.300.000</td>
+<td><span class="estado pendiente">Pendiente</span></td>
+
+</tr>
+
+<tr>
+
+<td>09/12/2026</td>
+<td>Alpina</td>
+<td>Tactica 34 </td>
+<td>Bogotá</td>
+<td>70</td>
+<td>$4.850.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+<tr>
+
+<td>09/10/2026</td>
+<td>Alpina</td>
+<td>Tactica 34 </td>
+<td>Bogotá</td>
+<td>70</td>
+<td>$4.850.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+<tr>
+
+<td>10/07/2026</td>
+<td>Bavaria</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>350</td>
+<td>$28.400.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+<tr>
+
+<td>11/07/2026</td>
+<td>Postobón</td>
+<td>Tactica 34 </td>
+<td>Bogota</td>
+<td>95</td>
+<td>$6.200.000</td>
+<td><span class="estado pendiente">Pendiente</span></td>
+
+</tr>
+
+<tr>
+
+<td>12/07/2026</td>
+<td>Claro Colombia</td>
+<td>Tactica 34 </td>
+<td>Bogotá</td>
+<td>140</td>
+<td>$10.300.000</td>
+<td><span class="estado confirmada">Confirmada</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<p>
+
+Dashboard de Seguimiento Comercial · Host junior desarrollador jhon torres· 2026
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
